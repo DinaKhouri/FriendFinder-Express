@@ -39,14 +39,18 @@ module.exports = function(app) {
       //console.log(sumUser);
       SumArrayUsers.push(sumUser);
     }
+    // that is the array that holds the summation of each user's score
     console.log(SumArrayUsers);
-    // for (var i = 0; i < friends.length; i++) {
-    //   for (var y = 0; y < friends[i].scores.length; y++) {
-    //     var sum = +friends[i].scores[y];
-    //     SumArray.push(sum);
-    //   }
-    //   console.log(SumArray);
-    //}
+    //now we need to loop through the SumArrayUsers and check the difference and save it in another array
+    //define diffrence array
+    var DifferenceArray = [];
+    for (i = 0; i < SumArrayUsers.length; i++) {
+      var difference = SumArrayUsers[i] - sum;
+      //absolute difference to get the positive value all the time
+      var differenceAbs = Math.abs(difference);
+      DifferenceArray.push(differenceAbs);
+    }
+    console.log(DifferenceArray);
     //console.log(friends);
     friends.push(req.body);
     res.json(true);
