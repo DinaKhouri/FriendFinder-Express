@@ -27,14 +27,13 @@ module.exports = function(app) {
 
     console.log(OurUserScoreNumber);
     console.log(sum); // 6
-    // for (i = 0; i < 10; i++) {
-    //   OurUserScoreSum = 5;
-    //   return OurUserScoreSum;
-    // }
-    //console.log(OurUserScoreSum);
+
     //now we need to run through the existing array and check the scores summation then compare it to OurUserScore
     //but first let's create an array to hold each users score difference
-    // var SumArray = [];
+    var SumArrayUsers = [];
+    for (i = 0; i < friends.length; i++) {
+      console.log(friends[i].scores);
+    }
     // for (var i = 0; i < friends.length; i++) {
     //   for (var y = 0; y < friends[i].scores.length; y++) {
     //     var sum = +friends[i].scores[y];
@@ -42,6 +41,7 @@ module.exports = function(app) {
     //   }
     //   console.log(SumArray);
     //}
+    //console.log(friends);
     friends.push(req.body);
     res.json(true);
   });
