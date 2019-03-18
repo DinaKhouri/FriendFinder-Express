@@ -74,6 +74,6 @@ module.exports = function(app) {
     console.log(winningMatch);
     //console.log(friends);
     friends.push(req.body);
-    res.json(true);
+    res.json(winningMatch);
   });
 };
