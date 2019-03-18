@@ -50,7 +50,28 @@ module.exports = function(app) {
       var differenceAbs = Math.abs(difference);
       DifferenceArray.push(differenceAbs);
     }
+    //now we need another for loop to see which user has the least difference because that is our match
+    // first lets create a variable to hold the lowest number.
+    //var Lowest;
+    var lowest = 0;
+    function indexOfSmallest(DifferenceArray) {
+      lowest = 0;
+      for (var i = 1; i < DifferenceArray.length; i++) {
+        if (DifferenceArray[i] < DifferenceArray[lowest]) lowest = i;
+      }
+      return lowest;
+    }
+    indexOfSmallest(DifferenceArray);
+
+    //now that we have got the index of the winning user, we can just use it to save its name, picture and show them in the modal !
+    console.log(lowest);
     console.log(DifferenceArray);
+    var winningMatch = {
+      name: friends[lowest].name,
+      photo: friends[lowest].photo,
+      friendDifference: DifferenceArray[lowest]
+    };
+    console.log(winningMatch);
     //console.log(friends);
     friends.push(req.body);
     res.json(true);
